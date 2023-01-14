@@ -1,0 +1,100 @@
+set nocompatible
+syntax on
+
+filetype plugin indent on
+set backspace=indent,eol,start
+
+let mapleader=","
+nnoremap ; :
+
+set ignorecase
+set smartcase
+
+" autocompletion of commands
+set wildmode=longest,list,full
+
+" things that should not appear in the file expansions
+set wildignore=*.o,*~,*.pyc,.DS_Store
+
+set number
+set ruler
+set visualbell
+
+set encoding=utf-8
+
+set hidden
+
+" Vundle settings
+" See article https://realpython.com/vim-and-python-a-match-made-in-heaven/
+
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" add all your plugins here (note older versions of Vundle
+" used Bundle instead of Plugin)
+
+Plugin 'vim-scripts/indentpython.vim'
+
+Plugin 'tpope/vim-surround'
+
+Plugin 'vim-syntastic/syntastic'
+
+" ...
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+set termguicolors
+" colorscheme embark
+" colorscheme zenburn
+" colorscheme nova
+colorscheme apprentice
+
+set cursorline
+" Not needed for apprentice theme, but can be good to know how to do
+" highlight CursorLine ctermbg=Yellow cterm=bold guibg=#2b2b2b
+" highlight CursorColumn ctermbg=Yellow cterm=bold guibg=#2b2b2b
+
+
+
+" Use system clipboard
+set clipboard=unnamed
+
+" Search related settings
+set incsearch
+set hlsearch
+nnoremap <leader><space> :nohlsearch<CR>
+
+" Folding settings
+set foldenable
+set foldlevelstart=10
+set foldnestmax=10 
+nnoremap <space> za
+set foldmethod=indent
+
+
+" Quick edit dotfiles
+nnoremap <leader>ev :vsp $MYVIMRC<CR>
+nnoremap <leader>ez :vsp ~/.zshrc<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+
+
+"split navigations
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Strip all trailing whitespace in the current file
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+set path=.,**
