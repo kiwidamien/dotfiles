@@ -1,6 +1,6 @@
 set shiftwidth=4 tabstop=4 softtabstop=4 expandtab autoindent smartindent
 
-autocmd BufferWritePre * %s/\s+$//e
+autocmd BufWritePre * %s/\s+$//e
 
 map <buffer> <leader>r :w<CR>:exec '!python' shellescape(@%, 1)<CR>
 imap <buffer> <leader>r :w<CR>:exec '!python' shellescape(@%, 1)<CR>
