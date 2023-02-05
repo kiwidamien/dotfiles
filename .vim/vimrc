@@ -40,6 +40,9 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-dadbod'
 Plugin 'preservim/nerdtree'
+Plugin 'ZoomWin'
+Plugin 'Rykka/riv.vim'
+Plugin 'Rykka/InstantRst'
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
 
@@ -90,12 +93,17 @@ nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
+" Change escape as suggested by Steve Losh
+" https://stevelosh.com/blog/2010/09/coming-home-to-vim/
+inoremap jk <ESC>
 
 "split navigations
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+" Easy creation of a new vertical split
+nnoremap <leader>w <C-w>v<C-w>l
 
 " Strip all trailing whitespace in the current file
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
