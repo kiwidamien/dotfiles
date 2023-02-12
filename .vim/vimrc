@@ -41,8 +41,6 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-dadbod'
 Plugin 'preservim/nerdtree'
 Plugin 'ZoomWin'
-Plugin 'Rykka/riv.vim'
-Plugin 'Rykka/InstantRst'
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
 
@@ -96,6 +94,17 @@ nnoremap <leader>sv :source $MYVIMRC<CR>
 " Change escape as suggested by Steve Losh
 " https://stevelosh.com/blog/2010/09/coming-home-to-vim/
 inoremap jk <ESC>
+
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+
+" Disable arrow movement; resize splits instead.
+" nnoremap <Up> :resize +2<CR>
+" nnoremap <Down> :resize -2<CR>
+" nnoremap <Left> :vertical resize +2<CR>
+" nnoremap <Right> :vertical resize -2<CR>
 
 "split navigations
 nnoremap <C-h> <C-w>h

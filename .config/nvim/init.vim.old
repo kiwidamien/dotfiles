@@ -1,0 +1,8 @@
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath = &runtimepath
+source ~/.vim/vimrc
+
+
+call plug#begin()
+Plug 'stsewd/sphinx.nvim', { 'do': ':UpdateRemotePlugins' }
+call plug#end()
