@@ -18,3 +18,6 @@ map <buffer> <leader>b :w<CR>gggqG<CR>
 
 setlocal path=.,**
 
+if !exists("current_compiler")
+	compiler python
+endif

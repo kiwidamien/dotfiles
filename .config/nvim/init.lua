@@ -96,7 +96,10 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 -- See `:help vim.o`
 
 -- Set highlight on search
-vim.o.hlsearch = false
+vim.o.hlsearch = true
+vim.o.incsearch = true
+vim.keymap.set({'n', 'i', 'c'}, '<leader>.', ':nohlsearch<CR>', {silent=true})
+
 
 -- Make line numbers default
 vim.wo.number = true
