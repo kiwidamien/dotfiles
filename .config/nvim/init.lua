@@ -98,7 +98,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 -- Set highlight on search
 vim.o.hlsearch = true
 vim.o.incsearch = true
-vim.keymap.set({'n', 'i', 'c'}, '<leader>.', ':nohlsearch<CR>', {silent=true})
+vim.keymap.set({'n', 'i', 'c'}, '<leader><Space>', ':nohlsearch<CR>', {silent=true})
 
 
 -- Make line numbers default
@@ -140,6 +140,12 @@ vim.g.maplocalleader = ','
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', ';', ':', { silent=true })
 vim.keymap.set('i', 'jk', '<Esc>', {silent=true})
+
+vim.keymap.set({'n', 'i'}, '<Left>', '<Nop>', { silent = true })
+vim.keymap.set({'n', 'i'}, '<Right>', '<Nop>', { silent = true })
+vim.keymap.set({'n', 'i'}, '<Up>', '<Nop>', { silent = true })
+vim.keymap.set({'n', 'i'}, '<Down>', '<Nop>', { silent = true })
+
 
 
 -- Remap for dealing with word wrap
@@ -208,7 +214,7 @@ pcall(require('telescope').load_extension, 'fzf')
 
 -- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
+vim.keymap.set('n', '<leader>.', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
 vim.keymap.set('n', '<leader>/', function()
   -- You can pass additional configuration to telescope to change theme, layout, etc.
   require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
