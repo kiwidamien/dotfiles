@@ -41,6 +41,8 @@ Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-dadbod'
 Plugin 'preservim/nerdtree'
 Plugin 'ZoomWin'
+Plugin 'vimwiki/vimwiki'
+
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
 
@@ -112,7 +114,7 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 " Easy creation of a new vertical split
-nnoremap <leader>w <C-w>v<C-w>l
+"nnoremap <leader>w <C-w>v<C-w>l
 
 " Strip all trailing whitespace in the current file
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
@@ -121,3 +123,11 @@ set path=.,**
 
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
+
+let g:vimwiki_list = [
+      \{'path': '~/VimWiki/personal.wiki'},
+      \{'path': '~/VimWiki/tech.wiki'}
+                \]
+
+set iskeyword-=_
+
