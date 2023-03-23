@@ -7,9 +7,31 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.cmd [[packadd packer.nvim]]
 end
 
+vim.g.mapleader = ','
+vim.g.maplocalleader = ','
+
+
 require('packer').startup(function(use)
   -- Package manager
   use 'wbthomason/packer.nvim'
+  
+  use {
+    'vimwiki/vimwiki',
+    config = function()
+      vim.g.vimwiki_list = {
+        {
+          path = '~/vimwiki/',
+          syntax = 'markdown',
+          ext  = '.md',
+        }
+      }
+      vim.g.vimwiki_ext2syntax = {
+        ['.md'] = 'markdown',
+        ['.markdown'] = 'markdown',
+        ['.mdown'] = 'markdown',
+      }
+    end
+  }
 
   use { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
@@ -98,7 +120,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 -- Set highlight on search
 vim.o.hlsearch = true
 vim.o.incsearch = true
-vim.keymap.set({'n', 'i', 'c'}, '<leader><Space>', ':nohlsearch<CR>', {silent=true})
+vim.keymap.set({'n', 'c'}, '<leader><Space>', ':nohlsearch<CR>', {silent=true})
 
 
 -- Make line numbers default
@@ -441,3 +463,5 @@ cmp.setup {
 --
 vim.api.nvim_command('set runtimepath^=~/.vim/after')
 vim.api.nvim_command('let &packpath = &runtimepath')
+vim.opt.iskeyword:remove('_')
+
