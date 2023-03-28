@@ -114,14 +114,19 @@ vim.api.nvim_create_autocmd('BufWritePost', {
   pattern = vim.fn.expand '$MYVIMRC',
 })
 
+-- keymappings for quickly editng the dotfiles
+vim.keymap.set({'n'}, '<leader>ev', ':vsp ~/.config/nvim/init.lua<CR>', {silent=true, noremap=true})
+vim.keymap.set({'n'}, '<leader>ez', ':vsp ~/.zshrc<CR>', {silent=true, noremap=true})
+vim.keymap.set({'n'}, '<leader>sv', 'source ~/.config/nvim/init.lua<CR>', {silent=true, noremap=true})
+
+
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
 -- Set highlight on search
 vim.o.hlsearch = true
 vim.o.incsearch = true
-vim.keymap.set({'n', 'c'}, '<leader><Space>', ':nohlsearch<CR>', {silent=true})
-
+vim.keymap.set({'n', 'c'}, '<leader><Space>', ':nohlsearch<CR>', {silent=true, noremap=true})
 
 -- Make line numbers default
 vim.wo.number = true
